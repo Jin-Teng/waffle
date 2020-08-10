@@ -2,13 +2,13 @@
   <h2>Search</h2>
   <div>
     <!-- designer search text -->
-    <div class="row">
+    <div class="row" *ngIf="role==='designer'">
       <!-- <input name="inputSearch" [value]="inputText" (ngModelChange)="inputValue"/> -->
       <input [(ngModel)]="inputText">
       <button mat-raised-button (click)="searchText()">search name</button>
     </div>
     <!-- member filter by date -->
-    <div class="row">
+    <div class="row" *ngIf="role==='member'">
       <!-- <input [(ngModel)]="inputDate"> -->
       <mat-form-field color="accent" appearance="fill">
         <mat-label>Inherited calendar color</mat-label>

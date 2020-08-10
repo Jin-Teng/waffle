@@ -1,11 +1,6 @@
-<div class="col-md-12" *ngIf="currentUser; else loggedOut">
+<div class="col-md-12">
 
-  <h3>currentUser is {{ currentUser.data.role }}</h3>
-  <div *ngIf="currentUser.data.role==='member'"><p>被你發現了</p></div>
-  <div *ngIf="currentUser.data.role==='designer'"><p>{{role}}</p></div>
+  <div *ngIf="role==='member'"><p>被你發現了</p></div>
+  <div *ngIf="role==='designer'"><p>{{role}}</p></div>
 
 </div>
-
-<ng-template #loggedOut>
-  Please login.
-</ng-template>

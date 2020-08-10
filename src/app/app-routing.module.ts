@@ -1,3 +1,4 @@
+import { MemberGuard } from './auth/member.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -9,9 +10,9 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'book', component: BookComponent, canActivate: [AuthGuard] },
+  { path: 'book', component: BookComponent, canActivate: [MemberGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'article', component: ArticleComponent, canActivate: [AuthGuard] }
 ];

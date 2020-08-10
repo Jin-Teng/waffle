@@ -1,7 +1,8 @@
+import { TokenStorageService } from './../_services/token-storage.service';
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../_services/data.service';
-import { filter, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Data } from '../_shared/data';
 import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
@@ -39,24 +40,28 @@ export class ArticleComponent implements OnInit {
   items: Post[];
   items$: Observable<Data>;
   posts$: Observable<Post[]>;
+  role: string;
 
   inputText: string;
   inputDate: string;
 
   constructor(
     private dataService: DataService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private tokenStorageService: TokenStorageService
   ) {
+
   }
 
   ngOnInit() {
     this.getPosts();
+    this.role = this.tokenStorageService.getUser();
   }
+
 
   getPosts() {
     this.dataService.getPosts().subscribe(
       data => {
-        console.log(data.data);
         this.items = data.data;
       }
     );

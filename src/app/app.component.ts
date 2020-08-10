@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { UserService } from './_services/user.service';
-import { filter, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
-    console.log(this.isLoggedIn);
+    console.log("app "+ this.isLoggedIn);
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit {
         console.log(data.code);
         if ( data.code === 0 ) {
           this.tokenStorageService.signOut();
-          window.location.reload();
+          // window.location.reload();
         }
     });
   }
