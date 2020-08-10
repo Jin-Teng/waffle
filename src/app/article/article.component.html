@@ -1,0 +1,56 @@
+<section>
+  <h2>Search</h2>
+  <div>
+    <!-- designer search text -->
+    <div class="row">
+      <!-- <input name="inputSearch" [value]="inputText" (ngModelChange)="inputValue"/> -->
+      <input [(ngModel)]="inputText">
+      <button mat-raised-button (click)="searchText()">search name</button>
+    </div>
+    <!-- member filter by date -->
+    <div class="row">
+      <!-- <input [(ngModel)]="inputDate"> -->
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Inherited calendar color</mat-label>
+        <input matInput [matDatepicker]="picker1" [(ngModel)]="inputDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button (click)="filterDate()">choose date</button>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h2>List</h2>
+  <div class="table">
+    <table>
+        <caption>
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">文章名稱</th>
+                <th scope="col">回覆數量</th>
+                <th scope="col">作者</th>
+                <th scope="col">建立時間</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let item of items">
+              <td>{{item.name}}</td>
+              <!-- <td>{{item.comments}}</td> -->
+              <td>0</td>
+              <td>{{item.author}}</td>
+              <td>{{item.create_at | date:'yyyy/MM/dd HH:mm' }}</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</section>

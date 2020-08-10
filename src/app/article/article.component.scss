@@ -1,0 +1,25 @@
+@import '_variables.scss';
+
+button {
+  margin-left: 1em;
+  background: $secondary;
+}
+
+.row {
+  display: block;
+  padding: 0.3em;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 0.5em;
+}

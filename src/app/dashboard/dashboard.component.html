@@ -1,0 +1,24 @@
+<div >
+  <div class="card card-container text-center">
+
+    <div class="row">
+      <div class="col-md-4">
+        <a  (click)="getTodayCounts()">Today</a>
+      </div>
+      <div class="col-md-4">
+        <a  (click)="getYesterdayCounts()">Yesterday</a>
+      </div>
+      <div class="col-md-4">
+        <a  (click)="getLastWeekCounts()">Last Week</a>
+      </div>
+    </div>
+
+    <div class="content">
+        <p>文章數量：{{ counts }}</p>
+    </div>
+
+  </div>
+</div>
+
+
+

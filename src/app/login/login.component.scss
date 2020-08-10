@@ -1,0 +1,16 @@
+@import '_variables.scss';
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-container{
+  width: 400px;
+}
+
+button {
+  background-color: $secondary;
+}
